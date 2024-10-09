@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  loxone-zaptec-proxy:
+    container_name: loxone-nuki-proxy
+    image: ghcr.io/rudyberends/rudyberends/loxone-nuki-proxy:latest
+    hostname: lnp01
+    env_file:
+        - .env.example
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    restart: always
+    ports:
+      - 6001:6001
